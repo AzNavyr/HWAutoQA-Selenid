@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6ml1ttwc6jd3skda/branch/master?svg=true)](https://ci.appveyor.com/project/AzNavyr/hwautoqa-selenid/branch/master)
