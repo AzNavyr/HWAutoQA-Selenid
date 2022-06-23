@@ -21,18 +21,18 @@ public class UiTest {
 
     @BeforeAll
     public static void setUpDriver() {
-        WebDriverManager.firefoxdriver().setup();
-        System.setProperty("webdriver.gecko.driver", "./driver/linux/geckodriver");
-        System.setProperty("java.awt.headless", "true");
+//        WebDriverManager.firefoxdriver().setup();
+        System.setProperty("webdriver.gecko.driver", "./driver/win/geckodriver.exe");
+//        System.setProperty("java.awt.headless", "true");
     }
 
     @BeforeEach
     public void setUp() {
-        FirefoxBinary firefoxBinary = new FirefoxBinary();
-        FirefoxOptions options = new FirefoxOptions();
-        options.setBinary(firefoxBinary);
-        options.setHeadless(true);
-        driver = new FirefoxDriver();
+ //       FirefoxBinary firefoxBinary = new FirefoxBinary();
+ //       FirefoxOptions options = new FirefoxOptions();
+ //       options.setBinary(firefoxBinary);
+ //       options.setHeadless(true);
+         driver = new FirefoxDriver();
     }
 
     @Test
