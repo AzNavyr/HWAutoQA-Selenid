@@ -22,7 +22,7 @@ public class UiTest {
     @BeforeAll
     public static void setUpDriver() {
 //        WebDriverManager.firefoxdriver().setup();
-        System.setProperty("webdriver.gecko.driver", "./driver/win/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "./driver/linux/geckodriver");
 //        System.setProperty("java.awt.headless", "true");
     }
 
