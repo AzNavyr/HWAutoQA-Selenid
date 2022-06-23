@@ -14,4 +14,4 @@ install:
 build_script:
   - chmod +x ./driver/linux/geckodriver
   - chmod +x gradlew
-  - ./gradlew test --info
+  - ./gradlew test --info --stacktrace
