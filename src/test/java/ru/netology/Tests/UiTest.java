@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.Tests;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
