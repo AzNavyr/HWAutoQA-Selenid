@@ -1,6 +1,7 @@
 package ru.netology.Tests;
 
 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.firefox.FirefoxBinary;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.List;
 
@@ -21,24 +24,19 @@ public class UiTest {
 
     @BeforeAll
     public static void setUpDriver() {
-
         WebDriverManager.firefoxdriver().setup();
-
     }
 
     @BeforeEach
     public void setUp() {
-        FirefoxBinary firefoxBinary = new FirefoxBinary();
         FirefoxOptions options = new FirefoxOptions();
-        options.setBinary(firefoxBinary);
-        options.setHeadless(true);
-        driver = new FirefoxDriver();
+        options.addArguments("--headless");
+        driver = new FirefoxDriver(options);
     }
 
     @Test
     public void shouldTestingUi() {
-        driver.get("http://localhost:9999/");
-        List<WebElement> elements = driver.findElements(By.className("input__control"));
+        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Сюзанна");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79788586822");
         driver.findElement(By.className("checkbox__box")).click();
@@ -49,8 +47,9 @@ public class UiTest {
     }
 
     @AfterEach
-    public void tearDown() {
-        driver.quit();
-        driver = null;
+    void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
