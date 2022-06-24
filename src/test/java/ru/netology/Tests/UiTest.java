@@ -21,6 +21,7 @@ public class UiTest {
 
     @BeforeAll
     public static void setUpDriver() {
+
         WebDriverManager.firefoxdriver().setup();
 
     }
