@@ -21,31 +21,29 @@ public class UiTest {
 
     @BeforeAll
     public static void setUpDriver() {
-//        WebDriverManager.firefoxdriver().setup();
-        System.setProperty("webdriver.gecko.driver", "./driver/win/geckodriver.exe");
-//        System.setProperty("java.awt.headless", "true");
+        WebDriverManager.firefoxdriver().setup();
     }
 
     @BeforeEach
     public void setUp() {
- //       FirefoxBinary firefoxBinary = new FirefoxBinary();
- //       FirefoxOptions options = new FirefoxOptions();
- //       options.setBinary(firefoxBinary);
- //       options.setHeadless(true);
-         driver = new FirefoxDriver();
+        FirefoxBinary firefoxBinary = new FirefoxBinary();
+        FirefoxOptions options = new FirefoxOptions();
+        options.setBinary(firefoxBinary);
+        options.setHeadless(true);
+        driver = new FirefoxDriver();
     }
 
     @Test
-    public  void should(){
+    public void shouldTestingUi() {
         driver.get("http://localhost:9999/");
         List<WebElement> elements = driver.findElements(By.className("input__control"));
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Сюзанна");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79788586822");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("button")).click();
-        String text = driver.findElement(By.className("paragraph_theme_alfa-on-white")).getText().trim();
+        String actualText = driver.findElement(By.cssSelector("[data-test-id = 'order-success']")).getText().trim();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        assertEquals(expected, text);
+        assertEquals(expected, actualText);
     }
 
     @AfterEach

@@ -1,27 +1,25 @@
-Thumbs.db*
-.DS_Store
 HELP.md
 .gradle
 build/
 
 ### STS ###
 .apt_generated
-.путь к классу
+.classpath
 .factorypath
-.проект
-.настройки
+.project
+.settings
 .springBeans
-.sts4-кэш
+.sts4-cache
 
-### IntelliJ ИДЕЯ ###
-.идея
+### IntelliJ IDEA ###
+.idea
 *.iws
 *.iml
 *.ipr
-из/
+out/
 
 ### NetBeans ###
-/nbproject/частный/
+/nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
