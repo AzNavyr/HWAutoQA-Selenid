@@ -34,23 +34,21 @@ public class UiTest {
         options.setHeadless(true);
         driver = new FirefoxDriver();
     }
+    
+     void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
     @Test
     public void shouldTestingUi() {
         driver.get("http://localhost:9999/");
-        List<WebElement> elements = driver.findElements(By.className("input__control"));
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Сюзанна");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79788586822");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.tagName("button")).click();
         String actualText = driver.findElement(By.cssSelector("[data-test-id = 'order-success']")).getText().trim();
-        String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        assertEquals(expected, actualText);
-    }
-
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
-        driver = null;
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 }
